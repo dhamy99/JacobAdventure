@@ -9,11 +9,23 @@ public class GameManagerSO : ScriptableObject
 {
     private DialogSystem dialogSystem;
 
+    private Vector3 newPosition;
+    private Vector2 newOrientation;
+
+    public Vector3 NewPosition { get => newPosition; }
+    public Vector2 NewOrientation { get => newOrientation; }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += NewSceneLoaded;
     }
+    
+    public void ChangePlayerStatus(bool v)
+    {
+        throw new NotImplementedException();
+    }
 
+    #region Dialog System
     private void NewSceneLoaded(Scene arg0, LoadSceneMode arg1)
         => dialogSystem = FindObjectOfType<DialogSystem>();
 
@@ -22,9 +34,12 @@ public class GameManagerSO : ScriptableObject
 
     public void NpcTalk(string phrase)
         => dialogSystem.SetFrameText(phrase);
+    #endregion
 
-    public void ChangePlayerStatus(bool v)
+    public void LoadNewScene(Vector3 newPosition, Vector2 newOrientation, int newSceneIndex)
     {
-        throw new NotImplementedException();
+        this.newPosition = newPosition;
+        this.newOrientation = newOrientation;
+        SceneManager.LoadScene(newSceneIndex);
     }
 }
