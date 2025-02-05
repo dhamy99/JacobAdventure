@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+public class NPC : MonoBehaviour, Interactable
 {
+    [SerializeField] private GameManagerSO gameManager;
     [SerializeField, TextArea(1, 5)] private string[] phrases;
     [SerializeField] private float timeBetweenLetters;
-    [SerializeField] private GameObject dialogFrame;
-    [SerializeField] private TMP_Text dialogText;
 
     private bool isTalking = false;
     private int currentPhraseIndex = -1;
 
     public void Interact()
     {
-        dialogFrame.SetActive(true);
+        gameManager.ChangePlayerStatus(false);
+        gameManager.NpcInteraction(true);
 
         if (!isTalking)
         {
@@ -43,19 +43,23 @@ public class NPC : MonoBehaviour
     {
         isTalking = false;
         currentPhraseIndex = -1;
-        dialogFrame.SetActive(false);
+        gameManager.NpcInteraction(false);
+        gameManager.ChangePlayerStatus(true);
     }
 
     private IEnumerator WritePhrase()
     {
         isTalking = true;
-        dialogText.text = "";
+        gameManager.NpcTalk("");
 
         char[] phraseCharacters = phrases[currentPhraseIndex].ToCharArray();
 
+        var currentPhrase = "";
+
         foreach (char c in phraseCharacters)
         {
-            dialogText.text += c;
+            currentPhrase += c;
+            gameManager.NpcTalk(currentPhrase);
             yield return new WaitForSeconds(timeBetweenLetters);
         }
 
@@ -66,16 +70,16 @@ public class NPC : MonoBehaviour
     {
         StopAllCoroutines();
 
-        dialogText.text = phrases[currentPhraseIndex];
+        gameManager.NpcTalk(phrases[currentPhraseIndex]);
         isTalking = false;
     }
 
     // SOLO PARA DEBUG: En el proyecto final será el player el que active interactuar
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Interact();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.I))
+    //    {
+    //        Interact();
+    //    }
+    //}
 }
