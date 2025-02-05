@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private bool isMoving = false;
 
     private Vector3 interactionPoint;
-    [Header ("InteractioParams")]
+    [Header ("InteractionParams")]
     [SerializeField] private float interactionRadius;
     [SerializeField] private LayerMask isCollisionable;
 
