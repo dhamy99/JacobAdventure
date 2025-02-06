@@ -10,11 +10,24 @@ public class GameManagerSO : ScriptableObject
     private Player player;
     private DialogSystem dialogSystem;
 
+    [NonSerialized]
+    private Vector3 newPosition = new Vector3(-4.5f, -1.5f, 0f); // Default Position
+
+    [NonSerialized]
+    private Vector2 newOrientation = new Vector2(0, -1); // Default Orientation
+
+    public Vector3 NewPosition { get => newPosition; }
+    public Vector2 NewOrientation { get => newOrientation; }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += NewSceneLoaded;
     }
 
+    public void ChangePlayerStatus(bool status)
+        => player.IsInteracting = !status;
+
+    #region Dialog System
     private void NewSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         player = FindObjectOfType<Player>();
@@ -26,7 +39,12 @@ public class GameManagerSO : ScriptableObject
 
     public void NpcTalk(string phrase)
         => dialogSystem.SetFrameText(phrase);
-
-    public void ChangePlayerStatus(bool status)
-        => player.IsInteracting = !status;
+    #endregion
+    
+    public void LoadNewScene(Vector3 newPosition, Vector2 newOrientation, int newSceneIndex)
+    {
+        this.newPosition = newPosition;
+        this.newOrientation = newOrientation;
+        SceneManager.LoadScene(newSceneIndex);
+    }
 }

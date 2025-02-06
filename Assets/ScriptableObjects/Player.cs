@@ -5,7 +5,7 @@ using UnityEngine.Scripting.APIUpdating;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameManagerSO gameManager;
 
     private float inputH;
     private float inputV;
@@ -28,7 +28,11 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        transform.position = gameManager.NewPosition;
+
+        // Decomentar cuando se impementen las animaciones del jugador
+        //anim.SetFloat("h", gameManager.NewOrientation.x);
+        //anim.SetFloat("v", gameManager.NewOrientation.y);
     }
 
     // Update is called once per frame
