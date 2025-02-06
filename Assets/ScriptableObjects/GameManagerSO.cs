@@ -9,8 +9,11 @@ public class GameManagerSO : ScriptableObject
 {
     private DialogSystem dialogSystem;
 
-    private Vector3 newPosition;
-    private Vector2 newOrientation;
+    [NonSerialized]
+    private Vector3 newPosition = new Vector3(-4.5f, -1.5f, 0f); // Default Position
+
+    [NonSerialized]
+    private Vector2 newOrientation = new Vector2(0, -1); // Default Orientation
 
     public Vector3 NewPosition { get => newPosition; }
     public Vector2 NewOrientation { get => newOrientation; }
