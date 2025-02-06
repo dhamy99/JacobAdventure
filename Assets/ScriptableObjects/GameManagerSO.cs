@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Scriptable Objects/GameManager")]
 public class GameManagerSO : ScriptableObject
 {
+    private Player player;
     private DialogSystem dialogSystem;
 
     private void OnEnable()
@@ -15,7 +16,10 @@ public class GameManagerSO : ScriptableObject
     }
 
     private void NewSceneLoaded(Scene arg0, LoadSceneMode arg1)
-        => dialogSystem = FindObjectOfType<DialogSystem>();
+    {
+        player = FindObjectOfType<Player>();
+        dialogSystem = FindObjectOfType<DialogSystem>();
+    }
 
     public void NpcInteraction(bool isInteracting)
         => dialogSystem.ChangeFrameStatus(isInteracting);
@@ -23,8 +27,6 @@ public class GameManagerSO : ScriptableObject
     public void NpcTalk(string phrase)
         => dialogSystem.SetFrameText(phrase);
 
-    public void ChangePlayerStatus(bool v)
-    {
-        throw new NotImplementedException();
-    }
+    public void ChangePlayerStatus(bool status)
+        => player.IsInteracting = !status;
 }

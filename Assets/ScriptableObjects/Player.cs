@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
 
     private Collider2D collision;
 
+    private bool isInteracting = false;
+
+    public bool IsInteracting { get => isInteracting; set => isInteracting = value; }
+
     void Start()
     {
         
@@ -50,7 +54,7 @@ public class Player : MonoBehaviour
     private void Move()
     {    
         //We control the call to move if the player is not moving and there is a input
-        if (!isMoving && (inputH != 0 || inputV != 0))
+        if (!isInteracting && !isMoving && (inputH != 0 || inputV != 0))
         {
             destinyPoint = transform.position + inputDirection;
             interactionPoint = destinyPoint;
