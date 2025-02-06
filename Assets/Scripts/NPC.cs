@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NPC : MonoBehaviour, Interactable
+public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameManagerSO gameManager;
     [SerializeField, TextArea(1, 5)] private string[] phrases;
