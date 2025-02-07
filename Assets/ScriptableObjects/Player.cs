@@ -24,15 +24,17 @@ public class Player : MonoBehaviour
 
     private bool isInteracting = false;
 
+    private Animator anim;
+
     public bool IsInteracting { get => isInteracting; set => isInteracting = value; }
 
     void Start()
     {
         transform.position = gameManager.NewPosition;
+        anim = GetComponent<Animator>();
 
-        // Decomentar cuando se impementen las animaciones del jugador
-        //anim.SetFloat("h", gameManager.NewOrientation.x);
-        //anim.SetFloat("v", gameManager.NewOrientation.y);
+        anim.SetFloat("h", gameManager.NewOrientation.x);
+        anim.SetFloat("v", gameManager.NewOrientation.y);
     }
 
     // Update is called once per frame
@@ -60,6 +62,9 @@ public class Player : MonoBehaviour
         //We control the call to move if the player is not moving and there is a input
         if (!isInteracting && !isMoving && (inputH != 0 || inputV != 0))
         {
+            anim.SetBool("isMoving", true);
+            anim.SetFloat("inputH", inputH);
+            anim.SetFloat("inputV", inputV);
             destinyPoint = transform.position + inputDirection;
             interactionPoint = destinyPoint;
             collision = CheckInteraction();
@@ -67,6 +72,10 @@ public class Player : MonoBehaviour
             {
                 StartCoroutine(MovePlayer());
             }
+        }
+        else if(inputH == 0 && inputV == 0)
+        {
+            anim.SetBool("isMoving", false);
         }
     }
 
