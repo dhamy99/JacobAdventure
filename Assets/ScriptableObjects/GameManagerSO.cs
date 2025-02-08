@@ -9,6 +9,9 @@ public class GameManagerSO : ScriptableObject
 {
     private Player player;
     private DialogSystem dialogSystem;
+    private InventorySystem inventorySystem;
+
+    public event Action<ItemSO> OnNewItem;
 
     [NonSerialized]
     private Vector3 newPosition = new Vector3(-4.5f, -1.5f, 0f); // Default Position
@@ -32,6 +35,7 @@ public class GameManagerSO : ScriptableObject
     {
         player = FindObjectOfType<Player>();
         dialogSystem = FindObjectOfType<DialogSystem>();
+        inventorySystem = FindObjectOfType<InventorySystem>();
     }
 
     public void NpcInteraction(bool isInteracting)
@@ -47,4 +51,11 @@ public class GameManagerSO : ScriptableObject
         this.newOrientation = newOrientation;
         SceneManager.LoadScene(newSceneIndex);
     }
+
+    #region Item System
+    public void NewItem(ItemSO itemData)
+    {
+        OnNewItem?.Invoke(itemData);
+    }
+    #endregion
 }

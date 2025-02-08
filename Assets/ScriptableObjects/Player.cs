@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,6 +56,28 @@ public class Player : MonoBehaviour
             inputV = Input.GetAxisRaw("Vertical");
         }
         inputDirection = new Vector3(inputH, inputV, 0);
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            InteractionTrigger();
+        }
+    }
+
+    private void InteractionTrigger()
+    {
+        collision = CheckInteraction();
+        if (collision)
+        {
+            if (collision.TryGetComponent(out IInteractable interactable))
+            {
+                if (interactable.transform.TryGetComponent(out Weapon weapon))
+                {
+                    gameManager.NewItem(weapon.ScriptableObjectData);
+                }
+
+                interactable.Interact();
+            }
+        }
     }
 
     private void Move()
