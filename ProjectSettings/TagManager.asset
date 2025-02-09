@@ -12,9 +12,9 @@ TagManager:
   - Collisionable
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Collisions
+  - Background
+  - Objects
   - 
   - 
   - 
