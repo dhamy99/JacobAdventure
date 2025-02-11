@@ -34,8 +34,8 @@ public class Player : MonoBehaviour
         transform.position = gameManager.NewPosition;
         anim = GetComponent<Animator>();
 
-        anim.SetFloat("h", gameManager.NewOrientation.x);
-        anim.SetFloat("v", gameManager.NewOrientation.y);
+        anim.SetFloat("inputH", gameManager.NewOrientation.x);
+        anim.SetFloat("inputV", gameManager.NewOrientation.y);
     }
 
     // Update is called once per frame
