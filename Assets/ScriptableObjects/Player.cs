@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
             {
                 if (interactable.transform.TryGetComponent(out Weapon weapon))
                 {
+                    AudioManager.instance.PlaySFX("Thorn");
                     gameManager.NewItem(weapon.ScriptableObjectData);
                 }
 
