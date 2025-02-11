@@ -50,6 +50,15 @@ public class GameManagerSO : ScriptableObject
         this.newPosition = newPosition;
         this.newOrientation = newOrientation;
         SceneManager.LoadScene(newSceneIndex);
+
+        if(newSceneIndex == 0)
+        {
+            AudioManager.instance.PlayBGM("Sun");
+        }
+        else if (newSceneIndex == 1)
+        {
+            AudioManager.instance.PlayBGM("Interior");
+        }
     }
 
     #region Item System
