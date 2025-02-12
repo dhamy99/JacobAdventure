@@ -1937,6 +1937,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8681204528823714359, guid: 9935aed564dc9ef44aeaf14cfdec5add, type: 3}
+      propertyPath: nextSceneIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681204528823714359, guid: 9935aed564dc9ef44aeaf14cfdec5add, type: 3}
       propertyPath: nextScenePosition.x
       value: 2.5
       objectReference: {fileID: 0}
