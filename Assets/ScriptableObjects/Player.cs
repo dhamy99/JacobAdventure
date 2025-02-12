@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
 
     private Animator anim;
 
+    [SerializeField] private GameObject pauseMenu;
+
+    private bool isPaused = false;
+
     public bool IsInteracting { get => isInteracting; set => isInteracting = value; }
 
     void Start()
@@ -43,6 +47,7 @@ public class Player : MonoBehaviour
     {
         InputControl();
         Move();
+        Pause();
     }
 
     private void InputControl()
@@ -118,5 +123,22 @@ public class Player : MonoBehaviour
     private Collider2D CheckInteraction()
     {
         return Physics2D.OverlapCircle(interactionPoint, interactionRadius, isCollisionable);
+    }
+
+    //Pause Control
+
+    private void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && isPaused == false)
+        {
+            pauseMenu.GetComponent<PauseMenu>().Pause();
+            pauseMenu.SetActive(true);
+            isPaused = true;
+        }
+
+        if (Time.timeScale == 1)
+        {
+            isPaused = false;
+        }
     }
 }

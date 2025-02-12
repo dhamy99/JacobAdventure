@@ -51,11 +51,11 @@ public class GameManagerSO : ScriptableObject
         this.newOrientation = newOrientation;
         SceneManager.LoadScene(newSceneIndex);
 
-        if(newSceneIndex == 0)
+        if(newSceneIndex == 1)
         {
             AudioManager.instance.PlayBGM("Sun");
         }
-        else if (newSceneIndex == 1)
+        else if (newSceneIndex == 2)
         {
             AudioManager.instance.PlayBGM("Interior");
         }
