@@ -5,14 +5,25 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    [SerializeField] private GameManagerSO gameManager;
-    [SerializeField, TextArea(1, 5)] private string[] phrases;
-    [SerializeField] private float timeBetweenLetters;
+    [SerializeField] private int id;
+    [SerializeField] protected GameManagerSO gameManager;
+    [SerializeField, TextArea(1, 5)] protected string[] phrases;
+    [SerializeField] protected float timeBetweenLetters;
 
-    private bool isTalking = false;
-    private int currentPhraseIndex = -1;
+    protected bool isTalking = false;
+    protected int currentPhraseIndex = -1;
+    protected string[] currentPhrases;
 
-    public void Interact()
+    public int Id { get => id; }
+
+    public GameObject GameObject => gameObject;
+
+    private void Start()
+    {
+        currentPhrases = phrases;
+    }
+
+    public virtual void Interact()
     {
         gameManager.ChangePlayerStatus(false);
         gameManager.NpcInteraction(true);
@@ -26,11 +37,11 @@ public class NPC : MonoBehaviour, IInteractable
         CompletePhrase();
     }
 
-    private void NextPhrase()
+    protected void NextPhrase()
     {
         currentPhraseIndex++;
 
-        if (currentPhraseIndex >= phrases.Length)
+        if (currentPhraseIndex >= currentPhrases.Length)
         {
             EndDialog();
             return;
@@ -39,20 +50,22 @@ public class NPC : MonoBehaviour, IInteractable
         StartCoroutine(WritePhrase());
     }
 
-    private void EndDialog()
+    protected virtual void EndDialog()
     {
         isTalking = false;
         currentPhraseIndex = -1;
         gameManager.NpcInteraction(false);
         gameManager.ChangePlayerStatus(true);
+
+        gameManager.EndInteraction(this);
     }
 
-    private IEnumerator WritePhrase()
+    protected IEnumerator WritePhrase()
     {
         isTalking = true;
         gameManager.NpcTalk("");
 
-        char[] phraseCharacters = phrases[currentPhraseIndex].ToCharArray();
+        char[] phraseCharacters = currentPhrases[currentPhraseIndex].ToCharArray();
 
         var currentPhrase = "";
 
@@ -66,20 +79,11 @@ public class NPC : MonoBehaviour, IInteractable
         isTalking = false;
     }
 
-    private void CompletePhrase()
+    protected void CompletePhrase()
     {
         StopAllCoroutines();
 
-        gameManager.NpcTalk(phrases[currentPhraseIndex]);
+        gameManager.NpcTalk(currentPhrases[currentPhraseIndex]);
         isTalking = false;
     }
-
-    // SOLO PARA DEBUG: En el proyecto final será el player el que active interactuar
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.I))
-    //    {
-    //        Interact();
-    //    }
-    //}
 }
