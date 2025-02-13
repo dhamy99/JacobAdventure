@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: BoxSplash
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 2a26a56c466c8e241be45f842635546a, type: 3}
+  - {fileID: 21300000, guid: 90e7d91ae32818e4890c849cb6e83be9, type: 3}
+  - {fileID: 21300000, guid: 8016ac21ac7cbbe48a0a3d666f959cd3, type: 3}
+  - {fileID: 21300000, guid: b4fa97bb3b9d74848be6802b0e1af724, type: 3}
+  - {fileID: 21300000, guid: 5361617bc93b0f341b0fc84cc37c20de, type: 3}
+  - {fileID: 21300000, guid: 567c82a5bdb45f6459936c455fdc4729, type: 3}
+  - {fileID: 21300000, guid: cccde30178182ad419e41c8ce2093d86, type: 3}
+  m_MinSpeed: 3
+  m_MaxSpeed: 3
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
