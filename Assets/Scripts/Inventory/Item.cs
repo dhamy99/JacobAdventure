@@ -9,5 +9,7 @@ public abstract class Item : MonoBehaviour, IInteractable
 
     public ItemSO ScriptableObjectData { get => scriptableObjectData; set => scriptableObjectData = value; }
 
+    public GameObject GameObject => gameObject;
+
     public abstract void Interact();
 }
