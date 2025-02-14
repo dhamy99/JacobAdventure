@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
     //at start, play theme music
     private void Start()
     {
-        PlayBGM("Sun");
+        PlayBGM("Hero");
     }
 
 
