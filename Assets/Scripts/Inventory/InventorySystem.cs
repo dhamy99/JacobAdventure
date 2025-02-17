@@ -29,16 +29,19 @@ public class InventorySystem : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            InitSlots();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        InitSlots();
+
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //    InitSlots();
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void InitSlots()
@@ -62,7 +65,7 @@ public class InventorySystem : MonoBehaviour
         {
             inventoryCanvas.SetActive(!inventoryCanvas.activeSelf);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             usableSlots[0].GetComponentInChildren<ItemInfo>().UseItem();
         }

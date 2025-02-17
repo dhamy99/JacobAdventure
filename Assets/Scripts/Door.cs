@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
-            // AudioManager.instance.PlaySFX("Enter");
+            AudioManager.instance.PlaySFX("Enter");
             gameManager.LoadNewScene(nextScenePosition, nextSceneRotation, nextSceneIndex);
         }
     }
