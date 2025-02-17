@@ -7,8 +7,7 @@ using UnityEngine.Scripting.APIUpdating;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameManagerSO gameManager;
-    [SerializeField] private PlayerStats stats; //Added mari
-    
+
     private float inputH;
     private float inputV;
     private Vector3 destinyPoint =  new Vector3();
@@ -18,7 +17,6 @@ public class Player : MonoBehaviour
     private bool isMoving = false;
 
     private Vector3 interactionPoint;
-   
     [Header ("InteractionParams")]
     [SerializeField] private float interactionRadius;
     [SerializeField] private LayerMask isCollisionable;
@@ -34,20 +32,6 @@ public class Player : MonoBehaviour
     private bool isPaused = false;
 
     public bool IsInteracting { get => isInteracting; set => isInteracting = value; }
-    public PlayerLife PlayerLife { get; private set; } //Added mari
-
-    // Added mari desde aquí
-    private void Awake()
-    {
-        PlayerLife = GetComponent<PlayerLife>();
-    }
-
-    public void RestaurarPersonaje()
-    {
-        PlayerLife.RestorePlayer();
-    }
-
-    // Added mari hasta aquí
 
     void Start()
     {
