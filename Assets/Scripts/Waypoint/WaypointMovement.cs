@@ -39,9 +39,9 @@ public class WaypointMovement : MonoBehaviour
 
     private void MoveCharacter()
     {
-        Debug.Log("Moving from: " + transform.position);
+        //Debug.Log("Moving from: " + transform.position);
         transform.position = Vector3.MoveTowards(transform.position, DestinationPoint, speed * Time.deltaTime);
-        Debug.Log("Moving to: " + DestinationPoint);
+        //Debug.Log("Moving to: " + DestinationPoint);
     }
 
     private bool CheckDestinationWaypointReached()
