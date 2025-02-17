@@ -11,6 +11,7 @@ public class GameManagerSO : ScriptableObject
     private DialogSystem dialogSystem;
     private InventorySystem inventorySystem;
     private QuestSystem questSystem;
+    private AudioManager audioManager;
 
     public event Action<ItemSO> OnNewItem;
 
@@ -34,6 +35,7 @@ public class GameManagerSO : ScriptableObject
         dialogSystem = FindObjectOfType<DialogSystem>();
         inventorySystem = FindObjectOfType<InventorySystem>();
         questSystem = FindObjectOfType<QuestSystem>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void ChangePlayerStatus(bool status)
@@ -60,9 +62,17 @@ public class GameManagerSO : ScriptableObject
         {
             AudioManager.instance.PlayBGM("Sun");
         }
-        else if (newSceneIndex == 2)
+        else if (newSceneIndex == 2 || newSceneIndex == 3)
         {
             AudioManager.instance.PlayBGM("Interior");
+        }
+        else if (newSceneIndex == 4)
+        {
+            AudioManager.instance.PlayBGM("Ghost");
+        }
+        else if (newSceneIndex == 0)
+        {
+            AudioManager.instance.PlayBGM("Hero");
         }
     }
 
