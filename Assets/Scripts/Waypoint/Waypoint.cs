@@ -18,7 +18,7 @@ public class Waypoint : MonoBehaviour
 
     public Vector3 GetMovementPosition(int index)
     {
-        Debug.Log("Get Movement Position: Actual position ->" + ActualPosition + " Position que queremos ir: " + points[index]);
+        //Debug.Log("Get Movement Position: Actual position ->" + ActualPosition + " Position que queremos ir: " + points[index]);
         return ActualPosition + points[index]; // Para saber la posicion del punto al cual nos queremos mover
     }
 
