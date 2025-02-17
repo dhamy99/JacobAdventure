@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8903951741086896361}
-  - component: {fileID: 4905579429778428699}
   - component: {fileID: 6894155890958174166}
   - component: {fileID: 8709610040374932485}
   - component: {fileID: 1450090005308731471}
   - component: {fileID: 3446484632764464729}
+  - component: {fileID: 4905579429778428699}
+  - component: {fileID: 6402980368205958770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -36,23 +37,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4905579429778428699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7568519012213682507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb24c70ff4b44147bce08c499ffcfef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 11400000, guid: a4a446841754ce94b8dafd5b49a08333, type: 2}
-  interactionRadius: 0.3
-  isCollisionable:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!212 &6894155890958174166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -198,3 +182,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4905579429778428699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568519012213682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb24c70ff4b44147bce08c499ffcfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 11400000, guid: a4a446841754ce94b8dafd5b49a08333, type: 2}
+  stats: {fileID: 0}
+  interactionRadius: 0.3
+  isCollisionable:
+    serializedVersion: 2
+    m_Bits: 8
+  pauseMenu: {fileID: 0}
+--- !u!114 &6402980368205958770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7568519012213682507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7081fb7b3c15c24686b77efe2772cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialHealth: 100
+  maxHealth: 100
