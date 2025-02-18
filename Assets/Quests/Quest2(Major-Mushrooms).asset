@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c214e1c72c40a434dae8c6c02f4d7d4c, type: 3}
-  m_Name: Quest1
+  m_Name: Quest2(Major-Mushrooms)
   m_EditorClassIdentifier: 
-  type: 2
-  name: New in the world
-  description: Talk to the villager
+  questId: 1
+  type: 1
+  name: Get the mushrooms in the North
+  description: Return them to the major in her house.
