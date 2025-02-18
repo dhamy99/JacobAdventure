@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private GameManagerSO gameManager;
     [SerializeField] private PlayerStats stats; //Added mari
+    [SerializeField] private float damageAttack;   
     
     private float inputH;
     private float inputV;
@@ -155,6 +156,16 @@ public class Player : MonoBehaviour
         if (Time.timeScale == 1)
         {
             isPaused = false;
+        }
+    }
+
+
+    // Atack Enemies
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyLife>().RecieveDamage(damageAttack);
         }
     }
 }
