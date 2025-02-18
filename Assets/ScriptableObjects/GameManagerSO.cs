@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "Scriptable Objects/GameManager")]
 public class GameManagerSO : ScriptableObject
 {
+    [SerializeField] private QuestSystem questSystem;
+
     private Player player;
     private DialogSystem dialogSystem;
     private InventorySystem inventorySystem;
-    private QuestSystem questSystem;
     private AudioManager audioManager;
 
     public event Action<ItemSO> OnNewItem;
@@ -34,7 +35,6 @@ public class GameManagerSO : ScriptableObject
         player = FindObjectOfType<Player>();
         dialogSystem = FindObjectOfType<DialogSystem>();
         inventorySystem = FindObjectOfType<InventorySystem>();
-        questSystem = FindObjectOfType<QuestSystem>();
         audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -45,8 +45,12 @@ public class GameManagerSO : ScriptableObject
         => questSystem.CheckQuestUpdates(interactable);
 
     #region Dialog System
-    public void NpcInteraction(bool isInteracting)
-        => dialogSystem.ChangeFrameStatus(isInteracting);
+    public void NpcInteraction(bool isInteracting, IInteractable interactable)
+    { 
+        dialogSystem.ChangeFrameStatus(isInteracting);
+        questSystem.CheckQuestUpdates(interactable);
+    }
+
 
     public void NpcTalk(string phrase)
         => dialogSystem.SetFrameText(phrase);
@@ -58,11 +62,11 @@ public class GameManagerSO : ScriptableObject
         this.newOrientation = newOrientation;
         SceneManager.LoadScene(newSceneIndex);
 
-        if(newSceneIndex == 1)
+        if (newSceneIndex == 1)
         {
             AudioManager.instance.PlayBGM("Sun");
         }
-        else if (newSceneIndex == 2 || newSceneIndex == 3)
+        else if (newSceneIndex == 2 || newSceneIndex == 3)
         {
             AudioManager.instance.PlayBGM("Interior");
         }
@@ -87,8 +91,8 @@ public class GameManagerSO : ScriptableObject
     public bool ExistsCurrentQuest()
         => questSystem.CurrentQuest != null;
 
-    public void StartQuest(int questId)
-        => questSystem.StartQuest(questId);
+    public void StartQuest(QuestSO quest)
+        => questSystem.StartQuest(quest);
 
     public bool IsMyquest(int questId)
         => questSystem.CurrentQuest.QuestId.Equals(questId);

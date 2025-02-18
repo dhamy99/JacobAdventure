@@ -20,6 +20,8 @@ public class NPCWithQuest : NPC
 
     public override void Interact()
     {
+        gameManager.NpcInteraction(true, this);
+
         if (gameManager.ExistsCurrentQuest() && !gameManager.IsMyquest(quest.QuestId) && !quest.IsCompleted)
             currentPhrases = questNotStartedPhrases;
 
@@ -35,7 +37,7 @@ public class NPCWithQuest : NPC
 
         if (!quest.IsStarted && !gameManager.ExistsCurrentQuest())
         {
-            gameManager.StartQuest(quest.QuestId);
+            gameManager.StartQuest(quest);
             currentPhrases = questStartedPhrases;
         }
     }

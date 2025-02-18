@@ -26,7 +26,7 @@ public class NPC : MonoBehaviour, IInteractable
     public virtual void Interact()
     {
         gameManager.ChangePlayerStatus(false);
-        gameManager.NpcInteraction(true);
+        gameManager.NpcInteraction(true, this);
 
         if (!isTalking)
         {
@@ -54,7 +54,7 @@ public class NPC : MonoBehaviour, IInteractable
     {
         isTalking = false;
         currentPhraseIndex = -1;
-        gameManager.NpcInteraction(false);
+        gameManager.NpcInteraction(false, this);
         gameManager.ChangePlayerStatus(true);
 
         gameManager.EndInteraction(this);

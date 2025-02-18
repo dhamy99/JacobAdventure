@@ -6,7 +6,6 @@ using UnityEngine;
 public class TalkQuest : QuestSO
 {
     [SerializeField] private int npcId;
-    private QuestType type = QuestType.TalkToNpc;
 
     public int NpcId { get => npcId; }
 
