@@ -16,4 +16,4 @@ MonoBehaviour:
   type: 2
   name: Know The Village
   description: Search and talk with the mayor
-  npcId: 1
+  npcId: 3
