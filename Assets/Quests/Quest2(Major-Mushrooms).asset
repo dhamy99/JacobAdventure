@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b99b2f1f4a6560478adbefe80578b9a, type: 3}
-  m_Name: QuestTalk1
+  m_Script: {fileID: 11500000, guid: c214e1c72c40a434dae8c6c02f4d7d4c, type: 3}
+  m_Name: Quest2(Major-Mushrooms)
   m_EditorClassIdentifier: 
-  questId: 3
-  type: 2
-  name: Know The Village
-  description: Search and talk with the mayor
-  npcId: 3
+  questId: 1
+  type: 1
+  name: Get the mushrooms
+  description: Give them to the major in her house.
