@@ -4,26 +4,22 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class QuestSystem : MonoBehaviour
+[CreateAssetMenu(fileName = "Scriptable Objects/QuestSystem")]
+public class QuestSystem : ScriptableObject
 {
-    [SerializeField] private GameObject questPanel;
-    [SerializeField] private TMP_Text questName;
-    [SerializeField] private TMP_Text questDescription;
-
-    [SerializeField] List<QuestSO> quests;
-
-    private QuestSO currentQuest;
+    [NonSerialized] private QuestSO currentQuest;
 
     public QuestSO CurrentQuest { get => currentQuest; }
 
-    public void StartQuest(int questId)
+    public event Action<QuestSO> OnQuestStarted;
+    public event Action OnQuestCompleted;
+
+    public void StartQuest(QuestSO quest)
     {
-        currentQuest = quests.Where(x => x.QuestId == questId).FirstOrDefault();
+        currentQuest = quest;
         currentQuest.IsStarted = true;
         currentQuest.OnQuestCompleted += EndQuest;
-        questName.text = currentQuest.Name;
-        questDescription.text = currentQuest.Description;
-        questPanel.SetActive(true);
+        OnQuestStarted?.Invoke(currentQuest);
     }
 
     public void CheckQuestUpdates(IInteractable interactable)
@@ -45,15 +41,6 @@ public class QuestSystem : MonoBehaviour
     {
         currentQuest = null;
         quest.OnQuestCompleted -= EndQuest;
-        questPanel.SetActive(false);
-    }
-
-    // Solo para DEBUG
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            currentQuest.CompleteQuest();
-        }
+        OnQuestCompleted?.Invoke();
     }
 }
