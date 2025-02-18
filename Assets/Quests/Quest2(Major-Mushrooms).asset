@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questId: 1
   type: 1
-  name: Get the mushrooms in the North
-  description: Return them to the major in her house.
+  name: Get the mushrooms
+  description: Give them to the major in her house.
