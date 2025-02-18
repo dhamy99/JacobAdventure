@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : LifeSystem
 {
@@ -60,7 +61,24 @@ public class PlayerLife : LifeSystem
     {
         boxCollider2D.enabled = false;
         Defeated = true;
-        //DefeatedPlayerEvent?.Invoke();
+        
+        // TRANSITION TO RESTART LEVEL
+        StartCoroutine(FreezeAndRestart());
+    }
+
+    IEnumerator FreezeAndRestart()
+    {
+        // Hacer un efecto de slow-motion
+        Time.timeScale = 0.2f;
+        yield return new WaitForSecondsRealtime(0.3f); // Usa WaitForSecondsRealtime para ignorar timeScale
+
+        // Congelar por un instante
+        Time.timeScale = 0f;
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        // Restaurar el tiempo y recargar la escena
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void RestorePlayer()
@@ -73,8 +91,6 @@ public class PlayerLife : LifeSystem
     
     protected override void UpdateLifeBar(float vidaActual, float vidaMax)
     {
-        //UIManager.Instance.ActualizarVidaPersonaje(vidaActual, vidaMax);
-        //Debug.Log("Vida actual: " + vidaActual + " Vida maxima: " + vidaMax);
     }
 
 }
