@@ -9,6 +9,8 @@ public class NPCWithQuest : NPC
     [SerializeField, TextArea(1, 5)] private string[] questPhrases;
     [SerializeField, TextArea(1, 5)] private string[] questStartedPhrases;
     [SerializeField, TextArea(1, 5)] private string[] questNotStartedPhrases;
+    [SerializeField, TextArea(1, 5)] private string[] questAfter;
+    [SerializeField, TextArea(1, 5)] private string[] questOther;
 
     private void Start()
     {

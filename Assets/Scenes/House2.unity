@@ -6399,6 +6399,172 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogFrame: {fileID: 1315593995}
   dialogText: {fileID: 692346047}
+--- !u!1001 &1723959873
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 442890528477510482, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a13e3c15e3ebb444a09c7abda4b1291, type: 3}
+    - target: {fileID: 442890528477510482, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442890528477510482, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442890528477510482, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 442890528477510482, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871318660215188246, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_Name
+      value: NPC_Major
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: id
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: quest
+      value: 
+      objectReference: {fileID: 11400000, guid: f61b70c669a1aa7499b2c49d5c6fee5b, type: 2}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: phrases.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questAfter.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questPhrases.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questAfter.Array.data[0]
+      value: Thank you for what you have done.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questAfter.Array.data[1]
+      value: 'I''ve heard there are other people who need your help. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questPhrases.Array.data[0]
+      value: You must be Jacob. Welcome to our island.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questPhrases.Array.data[1]
+      value: 'As I told you in that letter, our land is becoming blue and sterile. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questPhrases.Array.data[2]
+      value: Please, go North. There you will see that aberration.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questPhrases.Array.data[3]
+      value: 'Collect two mushrooms for me. Use gloves. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questStartedPhrases.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questNotStartedPhrases.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questStartedPhrases.Array.data[0]
+      value: Please, get those mushrooms.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: questNotStartedPhrases.Array.data[0]
+      value: Sorry, I'm busy. Talk to me later.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732993617484096601, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2871318660215188246, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1723959875}
+  m_SourcePrefab: {fileID: 100100000, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+--- !u!1 &1723959874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2871318660215188246, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
+  m_PrefabInstance: {fileID: 1723959873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1723959875
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723959874}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96042effb81274a8dab78156ca6857eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1871641281
 GameObject:
   m_ObjectHideFlags: 0
@@ -9036,3 +9202,4 @@ SceneRoots:
   - {fileID: 493984027}
   - {fileID: 1576490945}
   - {fileID: 845250614}
+  - {fileID: 1723959873}
