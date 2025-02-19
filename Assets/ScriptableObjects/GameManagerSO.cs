@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -24,6 +25,8 @@ public class GameManagerSO : ScriptableObject
 
     public Vector3 NewPosition { get => newPosition; }
     public Vector2 NewOrientation { get => newOrientation; }
+    public List<ItemSO> Inventory { get => inventorySystem.MyItems; }
+    public Player Player { get => player; set => player = value; }
 
     private void OnEnable()
     {
