@@ -35,6 +35,15 @@ public class QuestSystem : ScriptableObject
                 myQuest.CheckIfCompleted(npc.Id);
             }
         }
+        else if (currentQuest.Type.Equals(QuestType.RecollectItems))
+        {
+            var myQuest = (RecollectQuest)currentQuest;
+
+            if (interactable.GameObject.TryGetComponent<Item>(out Item item))
+            {
+                myQuest.UpdateQuest(item);
+            }
+        }
     }
 
     public void EndQuest(QuestSO quest)

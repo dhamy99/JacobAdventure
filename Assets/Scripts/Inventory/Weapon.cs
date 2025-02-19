@@ -7,5 +7,7 @@ public class Weapon : Item
     public override void Interact()
     {
         this.gameObject.SetActive(false);
+
+        base.Interact();
     }
 }
