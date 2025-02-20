@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsTab;
     [SerializeField] private GameObject mainTab;
     [SerializeField] private GameObject controlsTab;
+    [SerializeField] private GameObject sourceSFX;
+    [SerializeField] private GameObject sourceBGM;
 
     public void Play()
     {
@@ -43,5 +45,23 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.instance.PlaySFX("Select");
         Application.Quit();
+    }
+
+    public void SetVolumeBGM(float volume)
+    {
+        if (sourceBGM == null)
+        {
+            sourceBGM = GameObject.Find("BGM");
+        }
+        sourceBGM.GetComponent<AudioSource>().volume = volume;
+    }
+
+    public void SetVolumeSFX(float volume)
+    {
+        if (sourceSFX == null)
+        {
+            sourceBGM = GameObject.Find("SFX");
+        }
+        sourceSFX.GetComponent<AudioSource>().volume = volume;
     }
 }

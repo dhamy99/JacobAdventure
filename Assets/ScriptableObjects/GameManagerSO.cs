@@ -13,6 +13,7 @@ public class GameManagerSO : ScriptableObject
     private DialogSystem dialogSystem;
     private InventorySystem inventorySystem;
     private AudioManager audioManager;
+    private PlayerLife playerLife;
 
     public event Action<ItemSO> OnNewItem;
 
@@ -36,6 +37,7 @@ public class GameManagerSO : ScriptableObject
         dialogSystem = FindObjectOfType<DialogSystem>();
         inventorySystem = FindObjectOfType<InventorySystem>();
         audioManager = FindObjectOfType<AudioManager>();
+        playerLife = player.gameObject.GetComponent<PlayerLife>();
     }
 
     public void ChangePlayerStatus(bool status)
@@ -84,6 +86,10 @@ public class GameManagerSO : ScriptableObject
     public void NewItem(ItemSO itemData)
     {
         OnNewItem?.Invoke(itemData);
+    }
+    public float GetPlayerLife()
+    {
+        return playerLife.Health;
     }
     #endregion
 
