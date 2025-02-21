@@ -69,7 +69,7 @@ public class InventorySystem : MonoBehaviour
 
     private void InputReading()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameManager.IsPaused)
         {
             UpdateInventoryData();
             inventoryCanvas.SetActive(!inventoryCanvas.activeSelf);

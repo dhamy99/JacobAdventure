@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         generalFrame.SetActive(true);
         SetActiveFalseAllBut(pauseMenu);
         Time.timeScale = 0.0f;
+        gameManager.IsPaused = true;
     }
 
     public void Back()
@@ -59,6 +60,7 @@ public class PauseMenu : MonoBehaviour
         SetActiveFalseAllBut(pauseMenu);
         generalFrame.SetActive(false);
         Time.timeScale = 1.0f;
+        gameManager.IsPaused = false;
     }
 
     public void Exit()
@@ -68,6 +70,7 @@ public class PauseMenu : MonoBehaviour
         generalFrame.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
+        gameManager.IsPaused = false;
     }
 
 }

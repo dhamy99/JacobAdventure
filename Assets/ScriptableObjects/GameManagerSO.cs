@@ -16,6 +16,7 @@ public class GameManagerSO : ScriptableObject
     private AudioManager audioManager;
     private PlayerLife playerLife;
     private PauseMenu pauseMenu;
+    private bool isPaused = false;
 
     private int missionCount;
 
@@ -33,6 +34,7 @@ public class GameManagerSO : ScriptableObject
     public Player Player { get => player; set => player = value; }
     public AudioManager AudioManager { get => audioManager; }
     public int MissionCount { get => missionCount; set => missionCount = value; }
+    public bool IsPaused { get => isPaused; set => isPaused = value; }
 
     private void OnEnable()
     {
