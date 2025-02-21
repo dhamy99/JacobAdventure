@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
@@ -8,6 +9,13 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] private ItemSlot[] usableSlots;
     [SerializeField] private GameObject inventoryCanvas;
     [SerializeField] private GameManagerSO gameManager;
+
+    [Header("Data slots")]
+    [SerializeField] private TMP_Text hpNumber;
+    [SerializeField] private TMP_Text atkNumber;
+    [SerializeField] private TMP_Text completedQuestsNumber;
+    [SerializeField] private TMP_Text currentQuestName;
+    [SerializeField] private TMP_Text equipedItemName;
 
     private List<ItemSO> myItems = new List<ItemSO>();
     private int collectedItems = 0;
@@ -63,7 +71,16 @@ public class InventorySystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            UpdateInventoryData();
             inventoryCanvas.SetActive(!inventoryCanvas.activeSelf);
+
+            if (inventoryCanvas.activeSelf)
+            {
+                Time.timeScale = 0f;
+            } else
+            {
+                Time.timeScale = 1f;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -86,6 +103,24 @@ public class InventorySystem : MonoBehaviour
             itemInfoArray[collectedItems].FeedData(newItem);
             collectedItems++;
         }
+    }
+
+    private void UpdateInventoryData()
+    {
+        hpNumber.text = gameManager.GetPlayerLife().ToString();
+        /*
+        if (usableSlots)
+        {
+            atkNumber.text = usableSlots[0].GetComponent<ItemSO>().damage.ToString();
+        } else
+        {
+            atkNumber.text = "0";
+        }
+        */
+        
+        //ADD update quest number
+        //ADD update current quest name
+        //ADD update equiped item
     }
 
 }
