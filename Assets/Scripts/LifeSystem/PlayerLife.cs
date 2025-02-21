@@ -83,9 +83,10 @@ public class PlayerLife : LifeSystem
         Health = initialHealth;
         UpdateLifeBar(Health, initialHealth);
     }
-    
+
     protected override void UpdateLifeBar(float vidaActual, float vidaMax)
     {
+        UIManager.Instance.UpdateLifeBar(vidaActual, vidaMax);
     }
 
 }
