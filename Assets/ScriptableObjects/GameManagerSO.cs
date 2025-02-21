@@ -14,6 +14,7 @@ public class GameManagerSO : ScriptableObject
     private DialogSystem dialogSystem;
     private InventorySystem inventorySystem;
     private AudioManager audioManager;
+    private PauseMenu pauseMenu;
 
     public event Action<ItemSO> OnNewItem;
 
@@ -23,9 +24,9 @@ public class GameManagerSO : ScriptableObject
     [NonSerialized]
     private Vector2 newOrientation = new Vector2(0, -1); // Default Orientation
 
-    public Vector3 NewPosition { get => newPosition; }
-    public Vector2 NewOrientation { get => newOrientation; }
-    public List<ItemSO> Inventory { get => inventorySystem.MyItems; }
+    public Vector3 NewPosition { get => newPosition; set => newPosition = value; }
+    public Vector2 NewOrientation { get => newOrientation; set => newOrientation = value; }
+    public List<ItemSO> Inventory { get => inventorySystem.MyItems; set => inventorySystem.MyItems = value; }
     public Player Player { get => player; set => player = value; }
 
     private void OnEnable()
@@ -39,6 +40,7 @@ public class GameManagerSO : ScriptableObject
         dialogSystem = FindObjectOfType<DialogSystem>();
         inventorySystem = FindObjectOfType<InventorySystem>();
         audioManager = FindObjectOfType<AudioManager>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     public void ChangePlayerStatus(bool status)

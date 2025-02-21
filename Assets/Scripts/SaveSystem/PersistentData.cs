@@ -8,8 +8,9 @@ using UnityEngine.SceneManagement;
 public class PersistentData
 {
     private float lastPlayerposX, lastPlayerposY, lastPlayerRotX, lastPlayerRotY;
-    private Dictionary<int,bool> items = new Dictionary<int,bool>();
+    private Dictionary<string,bool> items = new Dictionary<string, bool>();
     private int sceneId;
+    //private List<ItemSO> itemsPlayer;
 
     public PersistentData(GameManagerSO gameManager) 
     {
@@ -18,6 +19,7 @@ public class PersistentData
         lastPlayerRotX = gameManager.Player.transform.rotation.x;
         lastPlayerRotY = gameManager.Player.transform.rotation.y;
         sceneId = SceneManager.GetActiveScene().buildIndex;
+
         
     }
 
@@ -26,4 +28,5 @@ public class PersistentData
     public float LastPlayerRotX { get => lastPlayerRotX;}
     public float LastPlayerRotY { get => lastPlayerRotY;}
     public int SceneId { get => sceneId; }
+    //public List<ItemSO> ItemsPlayer { get => itemsPlayer; }
 }
