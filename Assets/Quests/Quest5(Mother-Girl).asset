@@ -15,5 +15,5 @@ MonoBehaviour:
   questId: 4
   type: 2
   name: Speak with the girl
-  description: She told me to kill the flames.
+  description: She might be with the flames.
   npcId: 5
