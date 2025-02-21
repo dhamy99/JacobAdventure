@@ -6365,7 +6365,7 @@ PrefabInstance:
     - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
       propertyPath: quest
       value: 
-      objectReference: {fileID: 11400000, guid: f61b70c669a1aa7499b2c49d5c6fee5b, type: 2}
+      objectReference: {fileID: 11400000, guid: 26b9d5b5bd24df54d9bd697e6c2e1dad, type: 2}
     - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
       propertyPath: phrases.Array.size
       value: 0
