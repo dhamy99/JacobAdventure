@@ -86,7 +86,6 @@ public class PlayerLife : LifeSystem
     
     protected override void UpdateLifeBar(float vidaActual, float vidaMax)
     {
-        UIManager.Instance.UpdateLifeBar(vidaActual, vidaMax);
     }
 
 }
