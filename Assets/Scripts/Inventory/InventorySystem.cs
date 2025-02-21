@@ -110,11 +110,12 @@ public class InventorySystem : MonoBehaviour
             itemInfoArray[collectedItems].FeedData(newItem);
             collectedItems++;
         }
+        
     }
 
     public void UpdateInventoryData()
     {
-        InventoryReading();
+        //InventoryReading();
         //hpNumber.text = gameManager.GetPlayerLife().ToString();
         atkNumber.text = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData.damage.ToString();
         completedQuestsNumber.text = gameManager.MissionCount.ToString();   
@@ -122,32 +123,32 @@ public class InventorySystem : MonoBehaviour
         equipedItemName.text = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData.itemName;
     }
 
-    public void InventoryStoring()
-    {
-        inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
-        //inventoryData.items = myItems;
-        //inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
+    //public void InventoryStoring()
+    //{
+    //    inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
+    //    //inventoryData.items = myItems;
+    //    //inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
 
-        //for (int i = 0; i < inventoryData.items.Count; i++)
-        //{
-        //    if (!inventoryData)
-        //    {
-        //        inventoryData.items.RemoveAt(i);
-        //    }
-        //}
-    }
+    //    //for (int i = 0; i < inventoryData.items.Count; i++)
+    //    //{
+    //    //    if (!inventoryData)
+    //    //    {
+    //    //        inventoryData.items.RemoveAt(i);
+    //    //    }
+    //    //}
+    //}
 
-    public void InventoryReading()
-    {
+    //public void InventoryReading()
+    //{
 
-        //inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
-        //inventoryData.items = myItems;
+    //    //inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
+    //    //inventoryData.items = myItems;
 
 
-        //for (int i = 0; i < inventoryData.items.Count; i++)
-        //{
-        //    AddNewItem(inventoryData.items[i]);
-        //}
-        //usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData = inventoryData.equipedItem;
-    }
+    //    //for (int i = 0; i < inventoryData.items.Count; i++)
+    //    //{
+    //    //    AddNewItem(inventoryData.items[i]);
+    //    //}
+    //    //usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData = inventoryData.equipedItem;
+    //}
 }
