@@ -20,6 +20,7 @@ public class GameManagerSO : ScriptableObject
     private bool isInventoryOpen = false;
     private int missionCount;
     [NonSerialized] private string currentQuestName;
+    private ItemSO equipedItem;
 
     public event Action<ItemSO> OnNewItem;
 
@@ -38,6 +39,7 @@ public class GameManagerSO : ScriptableObject
     public bool IsPaused { get => isPaused; set => isPaused = value; }
     public string CurrentQuestName { get => currentQuestName; set => currentQuestName = value; }
     public bool IsInventoryOpen { get => isInventoryOpen; set => isInventoryOpen = value; }
+    public ItemSO EquipedItem { get => equipedItem; set => equipedItem = value; }
 
     private void OnEnable()
     {

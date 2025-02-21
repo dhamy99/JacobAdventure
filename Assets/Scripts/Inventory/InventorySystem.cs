@@ -21,9 +21,10 @@ public class InventorySystem : MonoBehaviour
     private int collectedItems = 0;
     private ItemInfo[] itemInfoArray;
 
-    private static InventorySystem instance;
+    //private static InventorySystem instance;
 
     public List<ItemSO> MyItems { get => myItems; set => myItems = value; }
+    public TMP_Text EquipedItemName { get => equipedItemName; set => equipedItemName = value; }
 
     private void OnEnable()
     {
@@ -111,21 +112,9 @@ public class InventorySystem : MonoBehaviour
     {
 
         //hpNumber.text = gameManager.GetPlayerLife().ToString();
-        if (usableSlots[0].TryGetComponent(out ItemInfo itemInfo))
-        {
-            atkNumber.text = itemInfo.CurrentData.damage.ToString();
-            //usableSlots[0].GetComponent<ItemSO>().damage.ToString();
-        } else
-        {
-            atkNumber.text = "0";
-        }
-
-        //atkNumber.text = usableSlots[0].GetComponent<ItemInfo>().CurrentData.damage.ToString();
-        completedQuestsNumber.text = gameManager.MissionCount.ToString();
-
-        
+        atkNumber.text = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData.damage.ToString();
+        completedQuestsNumber.text = gameManager.MissionCount.ToString();   
         currentQuestName.text = gameManager.CurrentQuestName;
-        //ADD update current quest name
-        //ADD update equiped item
+        equipedItemName.text = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData.itemName;
     }
 }
