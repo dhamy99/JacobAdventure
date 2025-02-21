@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        gameManager.Player = this;
         transform.position = gameManager.NewPosition;
         anim = GetComponent<Animator>();
 
