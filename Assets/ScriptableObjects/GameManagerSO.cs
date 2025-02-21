@@ -20,6 +20,7 @@ public class GameManagerSO : ScriptableObject
     private int missionCount;
     [NonSerialized] private string currentQuestName;
     private ItemSO equipedItem;
+    private bool isInventoryOpen;
 
 
     public event Action<ItemSO> OnNewItem;
