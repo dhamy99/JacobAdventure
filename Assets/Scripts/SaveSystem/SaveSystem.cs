@@ -15,6 +15,10 @@ public class SaveSystem : MonoBehaviour
     private GameObject saveMenu;
     [SerializeField]
     private GameManagerSO gameManager;
+    [SerializeField]
+    private GameObject pickAxe;
+    [SerializeField]
+    private GameObject sword;
 
     public void Awake()
     {
@@ -74,7 +78,27 @@ public class SaveSystem : MonoBehaviour
         //Setting the values of the save file
         gameManager.NewPosition = new Vector3(data.LastPlayerposX, data.LastPlayerposY);
         gameManager.NewOrientation = new Vector2(data.LastPlayerRotX, data.LastPlayerRotY);
-        //gameManager.Inventory = data.ItemsPlayer;
+        gameManager.IsPaused = false;
+        gameManager.Inventory = new List<ItemSO>();
+        //Setting the items that player had it
+        if(pickAxe != null && pickAxe.TryGetComponent(out Weapon weaponP))
+        {
+            if(data.Items.ContainsKey(weaponP.ScriptableObjectData.name))
+            {
+                gameManager.InventorySystem.AddNewItem(weaponP.ScriptableObjectData);
+            }
+        }
+        {
+            
+        }
+        if (sword != null && sword.TryGetComponent(out Weapon weaponS))
+        {
+            if (data.Items.ContainsKey(weaponS.ScriptableObjectData.name))
+            {
+                gameManager.InventorySystem.AddNewItem(weaponS.ScriptableObjectData);
+            }
+        }
+      
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(data.SceneId);
         Time.timeScale = 1.0f;

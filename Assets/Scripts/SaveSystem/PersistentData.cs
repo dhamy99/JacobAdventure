@@ -9,8 +9,8 @@ public class PersistentData
 {
     private float lastPlayerposX, lastPlayerposY, lastPlayerRotX, lastPlayerRotY;
     private Dictionary<string,bool> items = new Dictionary<string, bool>();
-    private int sceneId;
-    //private List<ItemSO> itemsPlayer;
+    private int sceneId, missionCount;
+    private string currentQuestName;
 
     public PersistentData(GameManagerSO gameManager) 
     {
@@ -19,6 +19,20 @@ public class PersistentData
         lastPlayerRotX = gameManager.Player.transform.rotation.x;
         lastPlayerRotY = gameManager.Player.transform.rotation.y;
         sceneId = SceneManager.GetActiveScene().buildIndex;
+        missionCount = gameManager.MissionCount;
+        currentQuestName = gameManager.CurrentQuestName;
+        List<ItemSO> itemsPlayer = gameManager.Inventory;
+
+        if (itemsPlayer != null)
+        {
+            foreach (ItemSO item in itemsPlayer)
+            {
+                if (item != null)
+                {
+                    items.Add(item.itemName, true);
+                }
+            }
+        }
 
         
     }
@@ -28,5 +42,7 @@ public class PersistentData
     public float LastPlayerRotX { get => lastPlayerRotX;}
     public float LastPlayerRotY { get => lastPlayerRotY;}
     public int SceneId { get => sceneId; }
-    //public List<ItemSO> ItemsPlayer { get => itemsPlayer; }
+    public Dictionary<string, bool> Items { get => items; set => items = value; }
+    public int MissionCount { get => missionCount; set => missionCount = value; }
+    public string CurrentQuestName { get => currentQuestName; set => currentQuestName = value; }
 }

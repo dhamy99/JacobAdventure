@@ -38,6 +38,7 @@ public class GameManagerSO : ScriptableObject
     public bool IsPaused { get => isPaused; set => isPaused = value; }
     public string CurrentQuestName { get => currentQuestName; set => currentQuestName = value; }
     public bool IsInventoryOpen { get => isInventoryOpen; set => isInventoryOpen = value; }
+    public InventorySystem InventorySystem { get => inventorySystem; set => inventorySystem = value; }
 
     private void OnEnable()
     {

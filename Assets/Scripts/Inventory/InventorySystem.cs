@@ -91,7 +91,7 @@ public class InventorySystem : MonoBehaviour
     }
 
 
-    private void AddNewItem(ItemSO newItem)
+    public void AddNewItem(ItemSO newItem)
     {
         if (myItems.Contains(newItem))
         {
