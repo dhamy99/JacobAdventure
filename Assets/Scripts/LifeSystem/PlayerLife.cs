@@ -10,6 +10,7 @@ public class PlayerLife : LifeSystem
 
     public bool Defeated { get; private set; }
     public bool CanBeHealed => Health < maxHealth; // Solo se puede curar si la vida actual es menor a la vida maxima
+    public static float healthActual = 0.0f;
 
     private BoxCollider2D boxCollider2D;
 
@@ -22,6 +23,7 @@ public class PlayerLife : LifeSystem
     protected override void Start()
     {
         base.Start();
+        Health = (healthActual > 0.0f) ? healthActual : initialHealth;
         UpdateLifeBar(Health, maxHealth);
     }
     private void Update()
@@ -30,6 +32,11 @@ public class PlayerLife : LifeSystem
         {
             RestoreHealth(10);  // Prueba de curación
         }
+    }
+
+    private void OnDestroy()
+    {
+        healthActual = Health;
     }
 
     public void RestoreHealth(float quantity)
@@ -84,7 +91,7 @@ public class PlayerLife : LifeSystem
         UpdateLifeBar(Health, initialHealth);
     }
 
-    protected override void UpdateLifeBar(float vidaActual, float vidaMax)
+    public override void UpdateLifeBar(float vidaActual, float vidaMax)
     {
         UIManager.Instance.UpdateLifeBar(vidaActual, vidaMax);
     }

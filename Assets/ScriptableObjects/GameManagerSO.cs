@@ -57,6 +57,13 @@ public class GameManagerSO : ScriptableObject
         inventorySystem = FindObjectOfType<InventorySystem>();
         audioManager = FindObjectOfType<AudioManager>();
         pauseMenu = FindObjectOfType<PauseMenu>();
+        if(arg0 != SceneManager.GetSceneByBuildIndex(0))
+        {
+            playerLife = FindObjectOfType<PlayerLife>();
+            playerLife.UpdateLifeBar(playerLife.Health, 100.0f);
+        }
+        
+        
     }
 
     public void ChangePlayerStatus(bool status)

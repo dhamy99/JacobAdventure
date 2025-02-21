@@ -114,7 +114,7 @@ public class InventorySystem : MonoBehaviour
     public void UpdateInventoryData()
     {
         //InventoryReading();
-        //hpNumber.text = gameManager.GetPlayerLife().ToString();
+        hpNumber.text = gameManager.PlayerLife.Health.ToString();
         atkNumber.text = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData.damage.ToString();
         completedQuestsNumber.text = gameManager.MissionCount.ToString();   
         currentQuestName.text = gameManager.CurrentQuestName;

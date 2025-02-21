@@ -34,7 +34,12 @@ public class LifeSystem : MonoBehaviour
         }
     }
 
-    protected virtual void UpdateLifeBar(float currentLife, float maxLife)
+    public void UpdateLife(float health)
+    {
+        Health = health;
+    }
+
+    public virtual void UpdateLifeBar(float currentLife, float maxLife)
     {
         
     }

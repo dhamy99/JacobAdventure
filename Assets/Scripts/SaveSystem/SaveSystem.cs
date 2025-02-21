@@ -81,6 +81,8 @@ public class SaveSystem : MonoBehaviour
         gameManager.IsPaused = false;
         gameManager.MissionCount = data.MissionCount;
         gameManager.CurrentQuestName = data.CurrentQuestName;
+        gameManager.PlayerLife = new PlayerLife();
+        gameManager.PlayerLife.UpdateLife(data.PlayerHealth);
         //Setting the items that player had it
         if(pickAxe != null && pickAxe.TryGetComponent(out Weapon weaponP))
         {

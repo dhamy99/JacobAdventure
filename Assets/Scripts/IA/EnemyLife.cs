@@ -36,7 +36,7 @@ public class EnemyLife : LifeSystem
         //enemyLifeBarInstance.transform.SetParent(lifeBarPosition);
     }
 
-    protected override void UpdateLifeBar(float currentLife, float maxLife)
+    public override void UpdateLifeBar(float currentLife, float maxLife)
     {
         enemyLifeBarInstance.ModifyHealth(currentLife, maxLife);
     }
