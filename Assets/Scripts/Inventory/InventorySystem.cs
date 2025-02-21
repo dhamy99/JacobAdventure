@@ -23,7 +23,7 @@ public class InventorySystem : MonoBehaviour
 
     private static InventorySystem instance;
 
-
+    public List<ItemSO> MyItems { get => myItems; set => myItems = value; }
 
     private void OnEnable()
     {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -14,6 +15,7 @@ public class GameManagerSO : ScriptableObject
     private InventorySystem inventorySystem;
     private AudioManager audioManager;
     private PlayerLife playerLife;
+    private PauseMenu pauseMenu;
 
     public event Action<ItemSO> OnNewItem;
 
@@ -23,8 +25,11 @@ public class GameManagerSO : ScriptableObject
     [NonSerialized]
     private Vector2 newOrientation = new Vector2(0, -1); // Default Orientation
 
-    public Vector3 NewPosition { get => newPosition; }
-    public Vector2 NewOrientation { get => newOrientation; }
+    public Vector3 NewPosition { get => newPosition; set => newPosition = value; }
+    public Vector2 NewOrientation { get => newOrientation; set => newOrientation = value; }
+    public List<ItemSO> Inventory { get => inventorySystem.MyItems; set => inventorySystem.MyItems = value; }
+    public Player Player { get => player; set => player = value; }
+    public AudioManager AudioManager { get => audioManager; set => audioManager = value; }
 
     private void OnEnable()
     {
@@ -38,6 +43,7 @@ public class GameManagerSO : ScriptableObject
         inventorySystem = FindObjectOfType<InventorySystem>();
         audioManager = FindObjectOfType<AudioManager>();
         playerLife = player.gameObject.GetComponent<PlayerLife>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     public void ChangePlayerStatus(bool status)

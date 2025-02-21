@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        gameManager.Player = this;
         transform.position = gameManager.NewPosition;
         anim = GetComponent<Animator>();
 
@@ -149,12 +150,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && isPaused == false)
         {
             pauseMenu.GetComponent<PauseMenu>().Pause();
-            pauseMenu.SetActive(true);
             isPaused = true;
         }
 
         if (Time.timeScale == 1)
         {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                pauseMenu.GetComponent<PauseMenu>().ReturnToGame();
+            } 
             isPaused = false;
         }
     }

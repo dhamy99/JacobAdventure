@@ -1,0 +1,32 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+[Serializable]
+public class PersistentData
+{
+    private float lastPlayerposX, lastPlayerposY, lastPlayerRotX, lastPlayerRotY;
+    private Dictionary<string,bool> items = new Dictionary<string, bool>();
+    private int sceneId;
+    //private List<ItemSO> itemsPlayer;
+
+    public PersistentData(GameManagerSO gameManager) 
+    {
+        lastPlayerposX = gameManager.Player.transform.position.x;
+        lastPlayerposY = gameManager.Player.transform.position.y;
+        lastPlayerRotX = gameManager.Player.transform.rotation.x;
+        lastPlayerRotY = gameManager.Player.transform.rotation.y;
+        sceneId = SceneManager.GetActiveScene().buildIndex;
+
+        
+    }
+
+    public float LastPlayerposX { get => lastPlayerposX;}
+    public float LastPlayerposY { get => lastPlayerposY;}
+    public float LastPlayerRotX { get => lastPlayerRotX;}
+    public float LastPlayerRotY { get => lastPlayerRotY;}
+    public int SceneId { get => sceneId; }
+    //public List<ItemSO> ItemsPlayer { get => itemsPlayer; }
+}

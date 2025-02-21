@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: JerseyWhite
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -94117867
   material: {fileID: -5976640317171734009}
-  materialHashCode: 0
+  materialHashCode: 602876053
   m_Version: 1.1.0
   m_SourceFontFileGUID: 6e2ebcab3d5984b04b98b01c1ae359f0
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 6e2ebcab3d5984b04b98b01c1ae359f0, type: 3}
