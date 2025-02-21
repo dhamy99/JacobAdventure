@@ -53,6 +53,7 @@ public class QuestSystem : ScriptableObject
         //UI
         AudioManager.instance.PlaySFX("Complete");
         gameManager.MissionCount++;
+        gameManager.CurrentQuestName = "";
         //UI end
 
         currentQuest = null;

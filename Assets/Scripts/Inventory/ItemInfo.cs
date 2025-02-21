@@ -10,6 +10,8 @@ public class ItemInfo : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemNameText;
     [SerializeField] private TMP_Text itemCountText;
+    [SerializeField] private InventorySystem inventorySystem;
+
 
     private Canvas canvas;
     private RectTransform itemRectTransform;
@@ -22,13 +24,14 @@ public class ItemInfo : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public Transform InitParent { get => initParent; }
     public Vector3 InitPosition { get => initPosition; }
+    public ItemSO CurrentData { get => currentData; set => currentData = value; }
 
     private void Awake()
     {
         canvas = transform.root.GetComponent<Canvas>();
         itemRectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-
+        inventorySystem = FindObjectOfType<InventorySystem>();
     }
 
     public void FeedData(ItemSO newItem)
@@ -75,6 +78,9 @@ public class ItemInfo : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             itemRectTransform.SetParent(initParent);
             itemRectTransform.localPosition = initPosition;
         }
+
+        Debug.Log(CurrentData.damage);
+        inventorySystem.UpdateInventoryData();
     }
 
     public void UpdateStackItem()

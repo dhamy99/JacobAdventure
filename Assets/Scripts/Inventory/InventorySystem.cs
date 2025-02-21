@@ -105,22 +105,24 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private void UpdateInventoryData()
+    public void UpdateInventoryData()
     {
 
-        completedQuestsNumber.text = gameManager.MissionCount.ToString();
         //hpNumber.text = gameManager.GetPlayerLife().ToString();
-        /*
-        if (usableSlots)
+        if (usableSlots[0].TryGetComponent(out ItemInfo itemInfo))
         {
-            atkNumber.text = usableSlots[0].GetComponent<ItemSO>().damage.ToString();
+            atkNumber.text = itemInfo.CurrentData.damage.ToString();
+            //usableSlots[0].GetComponent<ItemSO>().damage.ToString();
         } else
         {
             atkNumber.text = "0";
         }
-        */
+
+        //atkNumber.text = usableSlots[0].GetComponent<ItemInfo>().CurrentData.damage.ToString();
+        completedQuestsNumber.text = gameManager.MissionCount.ToString();
+
         
-        //ADD update quest number
+        currentQuestName.text = gameManager.CurrentQuestName;
         //ADD update current quest name
         //ADD update equiped item
     }
