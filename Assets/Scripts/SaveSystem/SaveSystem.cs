@@ -18,15 +18,15 @@ public class SaveSystem : MonoBehaviour
 
     public void Awake()
     {
-        if (saveSystem == null)
-        {
-            saveSystem = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (saveSystem == null)
+        //{
+        //    saveSystem = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
     public void Save()
     {

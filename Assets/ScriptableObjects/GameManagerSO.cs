@@ -29,6 +29,7 @@ public class GameManagerSO : ScriptableObject
     public Vector2 NewOrientation { get => newOrientation; set => newOrientation = value; }
     public List<ItemSO> Inventory { get => inventorySystem.MyItems; set => inventorySystem.MyItems = value; }
     public Player Player { get => player; set => player = value; }
+    public AudioManager AudioManager { get => audioManager; set => audioManager = value; }
 
     private void OnEnable()
     {

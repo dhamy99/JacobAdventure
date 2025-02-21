@@ -150,12 +150,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && isPaused == false)
         {
             pauseMenu.GetComponent<PauseMenu>().Pause();
-            pauseMenu.SetActive(true);
             isPaused = true;
         }
 
         if (Time.timeScale == 1)
         {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                pauseMenu.GetComponent<PauseMenu>().ReturnToGame();
+            } 
             isPaused = false;
         }
     }
