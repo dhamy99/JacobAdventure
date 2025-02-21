@@ -78,7 +78,6 @@ public class ItemInfo : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             itemRectTransform.SetParent(initParent);
             itemRectTransform.localPosition = initPosition;
         }
-
         inventorySystem.UpdateInventoryData();
 
     }

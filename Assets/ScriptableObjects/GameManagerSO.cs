@@ -22,6 +22,7 @@ public class GameManagerSO : ScriptableObject
     [NonSerialized] private string currentQuestName;
     private ItemSO equipedItem;
 
+
     public event Action<ItemSO> OnNewItem;
 
     [NonSerialized]
