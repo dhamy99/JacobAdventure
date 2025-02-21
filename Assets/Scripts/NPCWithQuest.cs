@@ -28,6 +28,9 @@ public class NPCWithQuest : NPC
         else if (!quest.IsCompleted && !gameManager.ExistsCurrentQuest() && !quest.IsStarted)
             currentPhrases = questPhrases;
 
+        else if (quest.IsCompleted)
+            currentPhrases = questAfter;
+
         base.Interact();
     }
 

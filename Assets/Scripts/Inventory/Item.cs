@@ -11,5 +11,8 @@ public abstract class Item : MonoBehaviour, IInteractable
 
     public GameObject GameObject => gameObject;
 
-    public abstract void Interact();
+    public virtual void Interact()
+    {
+        gameManager.EndInteraction(this);
+    }
 }

@@ -9,6 +9,8 @@ public class QuestSystem : ScriptableObject
 {
     [NonSerialized] private QuestSO currentQuest;
 
+    [SerializeField] private GameManagerSO gameManager;
+
     public QuestSO CurrentQuest { get => currentQuest; }
 
     public event Action<QuestSO> OnQuestStarted;
@@ -35,10 +37,24 @@ public class QuestSystem : ScriptableObject
                 myQuest.CheckIfCompleted(npc.Id);
             }
         }
+        else if (currentQuest.Type.Equals(QuestType.RecollectItems))
+        {
+            var myQuest = (RecollectQuest)currentQuest;
+
+            if (interactable.GameObject.TryGetComponent<Item>(out Item item))
+            {
+                myQuest.UpdateQuest(item);
+            }
+        }
     }
 
     public void EndQuest(QuestSO quest)
     {
+        //UI
+        AudioManager.instance.PlaySFX("Complete");
+        gameManager.MissionCount++;
+        //UI end
+
         currentQuest = null;
         quest.OnQuestCompleted -= EndQuest;
         OnQuestCompleted?.Invoke();
