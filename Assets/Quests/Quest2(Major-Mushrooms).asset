@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questId: 1
   type: 1
-  name: Get the mushrooms
-  description: Give them to the major in her house.
+  name: Get three mushrooms
+  description: The major said they were at North
   itemCollectedTag: Mushroom
   requiredCollected: 3

@@ -93,10 +93,15 @@ public class Player : MonoBehaviour
         {
             if (collision.TryGetComponent(out IInteractable interactable))
             {
-                if (interactable.transform.TryGetComponent(out Weapon weapon))
+                if (interactable.transform.TryGetComponent(out Item item))
                 {
                     AudioManager.instance.PlaySFX("Thorn");
-                    gameManager.NewItem(weapon.ScriptableObjectData);
+                    gameManager.NewItem(item.ScriptableObjectData);
+                }
+
+                if (interactable.transform.TryGetComponent(out NPC npc))
+                {
+                    AudioManager.instance.PlaySFX("Select");
                 }
 
                 interactable.Interact();

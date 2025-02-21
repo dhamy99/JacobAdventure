@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571b737d6a6f44cd1a64d5e6b269b21d, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
-  itemName: Mushroom
+  itemName: Mushro.
   damage: 0
   value: 0
   description: A simple Mushroom

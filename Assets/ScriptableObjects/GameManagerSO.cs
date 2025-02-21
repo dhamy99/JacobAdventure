@@ -17,6 +17,8 @@ public class GameManagerSO : ScriptableObject
     private PlayerLife playerLife;
     private PauseMenu pauseMenu;
 
+    private int missionCount;
+
     public event Action<ItemSO> OnNewItem;
 
     [NonSerialized]
@@ -29,10 +31,12 @@ public class GameManagerSO : ScriptableObject
     public Vector2 NewOrientation { get => newOrientation; set => newOrientation = value; }
     public List<ItemSO> Inventory { get => inventorySystem.MyItems; set => inventorySystem.MyItems = value; }
     public Player Player { get => player; set => player = value; }
-    public AudioManager AudioManager { get => audioManager; set => audioManager = value; }
+    public AudioManager AudioManager { get => audioManager; }
+    public int MissionCount { get => missionCount; set => missionCount = value; }
 
     private void OnEnable()
     {
+        missionCount = 0;
         SceneManager.sceneLoaded += NewSceneLoaded;
     }
 
@@ -42,7 +46,6 @@ public class GameManagerSO : ScriptableObject
         dialogSystem = FindObjectOfType<DialogSystem>();
         inventorySystem = FindObjectOfType<InventorySystem>();
         audioManager = FindObjectOfType<AudioManager>();
-        playerLife = player.gameObject.GetComponent<PlayerLife>();
         pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
@@ -92,10 +95,6 @@ public class GameManagerSO : ScriptableObject
     public void NewItem(ItemSO itemData)
     {
         OnNewItem?.Invoke(itemData);
-    }
-    public float GetPlayerLife()
-    {
-        return playerLife.Health;
     }
     #endregion
 

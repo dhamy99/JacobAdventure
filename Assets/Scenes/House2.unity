@@ -6400,7 +6400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
       propertyPath: questPhrases.Array.data[3]
-      value: 'Collect two mushrooms for me. Use gloves. '
+      value: 'Collect three mushrooms. Use gloves. '
       objectReference: {fileID: 0}
     - target: {fileID: 7345000517831762059, guid: c46e3f5c9e577f04cae27756d4b3b88e, type: 3}
       propertyPath: questStartedPhrases.Array.size

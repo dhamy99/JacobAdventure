@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4c90d3a8a640c46b6c05f5a3501550, type: 3}
   m_Name: QuestSystem
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 11400000, guid: a4a446841754ce94b8dafd5b49a08333, type: 2}
