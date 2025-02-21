@@ -42,7 +42,7 @@ public class GameManagerSO : ScriptableObject
     public bool IsInventoryOpen { get => isInventoryOpen; set => isInventoryOpen = value; }
     public InventorySystem InventorySystem { get => inventorySystem; set => inventorySystem = value; }
     public ItemSO EquipedItem { get => equipedItem; set => equipedItem = value; }
-
+    public PlayerLife PlayerLife { get => playerLife; set => playerLife = value; }
 
     private void OnEnable()
     {

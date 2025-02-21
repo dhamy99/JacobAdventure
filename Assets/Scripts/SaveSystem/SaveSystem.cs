@@ -79,7 +79,8 @@ public class SaveSystem : MonoBehaviour
         gameManager.NewPosition = new Vector3(data.LastPlayerposX, data.LastPlayerposY);
         gameManager.NewOrientation = new Vector2(data.LastPlayerRotX, data.LastPlayerRotY);
         gameManager.IsPaused = false;
-        gameManager.Inventory = new List<ItemSO>();
+        gameManager.MissionCount = data.MissionCount;
+        gameManager.CurrentQuestName = data.CurrentQuestName;
         //Setting the items that player had it
         if(pickAxe != null && pickAxe.TryGetComponent(out Weapon weaponP))
         {

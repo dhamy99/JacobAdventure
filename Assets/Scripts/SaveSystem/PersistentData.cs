@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class PersistentData
 {
-    private float lastPlayerposX, lastPlayerposY, lastPlayerRotX, lastPlayerRotY;
+    private float lastPlayerposX, lastPlayerposY, lastPlayerRotX, lastPlayerRotY, playerHealth;
     private Dictionary<string,bool> items = new Dictionary<string, bool>();
     private int sceneId, missionCount;
     private string currentQuestName;
@@ -21,6 +21,7 @@ public class PersistentData
         sceneId = SceneManager.GetActiveScene().buildIndex;
         missionCount = gameManager.MissionCount;
         currentQuestName = gameManager.CurrentQuestName;
+        playerHealth = gameManager.PlayerLife.Health;
         List<ItemSO> itemsPlayer = gameManager.Inventory;
 
         if (itemsPlayer != null)
@@ -45,4 +46,5 @@ public class PersistentData
     public Dictionary<string, bool> Items { get => items; set => items = value; }
     public int MissionCount { get => missionCount; set => missionCount = value; }
     public string CurrentQuestName { get => currentQuestName; set => currentQuestName = value; }
+    public global::System.Single PlayerHealth { get => playerHealth; set => playerHealth = value; }
 }
