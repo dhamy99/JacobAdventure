@@ -16,8 +16,9 @@ public class GameManagerSO : ScriptableObject
     private AudioManager audioManager;
     private PlayerLife playerLife;
     private PauseMenu pauseMenu;
-
+    
     private int missionCount;
+    [NonSerialized] private string currentQuestName;
 
     public event Action<ItemSO> OnNewItem;
 
@@ -33,6 +34,7 @@ public class GameManagerSO : ScriptableObject
     public Player Player { get => player; set => player = value; }
     public AudioManager AudioManager { get => audioManager; }
     public int MissionCount { get => missionCount; set => missionCount = value; }
+    public string CurrentQuestName { get => currentQuestName; set => currentQuestName = value; }
 
     private void OnEnable()
     {
@@ -103,7 +105,10 @@ public class GameManagerSO : ScriptableObject
         => questSystem.CurrentQuest != null;
 
     public void StartQuest(QuestSO quest)
-        => questSystem.StartQuest(quest);
+    {
+        questSystem.StartQuest(quest);
+        currentQuestName = quest.Name;
+    }
 
     public bool IsMyquest(int questId)
         => questSystem.CurrentQuest.QuestId.Equals(questId);

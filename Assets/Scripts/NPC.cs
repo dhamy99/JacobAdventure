@@ -58,6 +58,11 @@ public class NPC : MonoBehaviour, IInteractable
         gameManager.ChangePlayerStatus(true);
 
         gameManager.EndInteraction(this);
+
+        if (this.gameObject.name == "NPC_Sage" && gameManager.CurrentQuestName == "Kill the monster")
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     protected IEnumerator WritePhrase()
