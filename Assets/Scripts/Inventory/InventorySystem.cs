@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,6 +11,8 @@ public class InventorySystem : MonoBehaviour
     [SerializeField] private GameObject inventoryCanvas;
     [SerializeField] private GameManagerSO gameManager;
 
+    [SerializeField] private InventorySO inventoryData;
+
     [Header("Data slots")]
     [SerializeField] private TMP_Text hpNumber;
     [SerializeField] private TMP_Text atkNumber;
@@ -21,9 +24,11 @@ public class InventorySystem : MonoBehaviour
     private int collectedItems = 0;
     private ItemInfo[] itemInfoArray;
 
-    private static InventorySystem instance;
+    //private static InventorySystem instance;
 
     public List<ItemSO> MyItems { get => myItems; set => myItems = value; }
+    public TMP_Text EquipedItemName { get => equipedItemName; set => equipedItemName = value; }
+    public InventorySO InventoryData { get => inventoryData; set => inventoryData = value; }
 
     private void OnEnable()
     {
@@ -77,11 +82,9 @@ public class InventorySystem : MonoBehaviour
             if (inventoryCanvas.activeSelf)
             {
                 Time.timeScale = 0f;
-                gameManager.IsInventoryOpen = true;
             } else
             {
                 Time.timeScale = 1f;
-                gameManager.IsInventoryOpen = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))
@@ -105,27 +108,45 @@ public class InventorySystem : MonoBehaviour
             itemInfoArray[collectedItems].FeedData(newItem);
             collectedItems++;
         }
+        
     }
 
     public void UpdateInventoryData()
     {
-
+        //InventoryReading();
         //hpNumber.text = gameManager.GetPlayerLife().ToString();
-        if (usableSlots[0].TryGetComponent(out ItemInfo itemInfo))
-        {
-            atkNumber.text = itemInfo.CurrentData.damage.ToString();
-            //usableSlots[0].GetComponent<ItemSO>().damage.ToString();
-        } else
-        {
-            atkNumber.text = "0";
-        }
-
-        //atkNumber.text = usableSlots[0].GetComponent<ItemInfo>().CurrentData.damage.ToString();
-        completedQuestsNumber.text = gameManager.MissionCount.ToString();
-
-        
+        atkNumber.text = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData.damage.ToString();
+        completedQuestsNumber.text = gameManager.MissionCount.ToString();   
         currentQuestName.text = gameManager.CurrentQuestName;
-        //ADD update current quest name
-        //ADD update equiped item
+        equipedItemName.text = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData.itemName;
     }
+
+    //public void InventoryStoring()
+    //{
+    //    inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
+    //    //inventoryData.items = myItems;
+    //    //inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
+
+    //    //for (int i = 0; i < inventoryData.items.Count; i++)
+    //    //{
+    //    //    if (!inventoryData)
+    //    //    {
+    //    //        inventoryData.items.RemoveAt(i);
+    //    //    }
+    //    //}
+    //}
+
+    //public void InventoryReading()
+    //{
+
+    //    //inventoryData.equipedItem = usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData;
+    //    //inventoryData.items = myItems;
+
+
+    //    //for (int i = 0; i < inventoryData.items.Count; i++)
+    //    //{
+    //    //    AddNewItem(inventoryData.items[i]);
+    //    //}
+    //    //usableSlots[0].GetComponentInChildren<ItemInfo>().CurrentData = inventoryData.equipedItem;
+    //}
 }

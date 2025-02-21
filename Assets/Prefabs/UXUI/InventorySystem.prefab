@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: 110118362518693680}
   inventoryCanvas: {fileID: 8074321866810640254}
   gameManager: {fileID: 11400000, guid: a4a446841754ce94b8dafd5b49a08333, type: 2}
+  inventoryData: {fileID: 11400000, guid: c0bdaa8a04b874265b8e2ae224ce5e7f, type: 2}
   hpNumber: {fileID: 6365122860346769747}
   atkNumber: {fileID: 4341698143981840096}
   completedQuestsNumber: {fileID: 4047731075124394817}

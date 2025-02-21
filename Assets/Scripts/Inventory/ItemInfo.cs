@@ -20,7 +20,7 @@ public class ItemInfo : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     private Vector3 initPosition; //original position it's been anchored to
     private int itemCount;
 
-    private ItemSO currentData;
+    [SerializeField] private ItemSO currentData;
 
     public Transform InitParent { get => initParent; }
     public Vector3 InitPosition { get => initPosition; }
@@ -78,9 +78,8 @@ public class ItemInfo : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             itemRectTransform.SetParent(initParent);
             itemRectTransform.localPosition = initPosition;
         }
-
-        Debug.Log(CurrentData.damage);
         inventorySystem.UpdateInventoryData();
+
     }
 
     public void UpdateStackItem()
