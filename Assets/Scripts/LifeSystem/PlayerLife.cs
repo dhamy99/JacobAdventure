@@ -25,12 +25,7 @@ public class PlayerLife : LifeSystem
         UpdateLifeBar(Health, maxHealth);
     }
     private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))    // Herir al personaje
-        {
-            RecieveDamage(10);  // Prueba de daño
-        }
-        
+    {        
         if (Input.GetKeyDown(KeyCode.Y))    // Curar al personaje
         {
             RestoreHealth(10);  // Prueba de curación
