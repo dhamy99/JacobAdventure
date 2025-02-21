@@ -17,7 +17,6 @@ public class GameManagerSO : ScriptableObject
     private PlayerLife playerLife;
     private PauseMenu pauseMenu;
     private bool isPaused = false;
-    private bool isInventoryOpen = false;
     private int missionCount;
     [NonSerialized] private string currentQuestName;
     private ItemSO equipedItem;
@@ -41,6 +40,7 @@ public class GameManagerSO : ScriptableObject
     public string CurrentQuestName { get => currentQuestName; set => currentQuestName = value; }
     public bool IsInventoryOpen { get => isInventoryOpen; set => isInventoryOpen = value; }
     public ItemSO EquipedItem { get => equipedItem; set => equipedItem = value; }
+
 
     private void OnEnable()
     {

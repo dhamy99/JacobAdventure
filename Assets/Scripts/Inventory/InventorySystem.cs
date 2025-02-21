@@ -82,11 +82,9 @@ public class InventorySystem : MonoBehaviour
             if (inventoryCanvas.activeSelf)
             {
                 Time.timeScale = 0f;
-                gameManager.IsInventoryOpen = true;
             } else
             {
                 Time.timeScale = 1f;
-                gameManager.IsInventoryOpen = false;
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))

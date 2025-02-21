@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
 
     private void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.P) && isPaused == false && gameManager.IsInventoryOpen == false)
+        if (Input.GetKeyDown(KeyCode.P) && isPaused == false)
         {
             pauseMenu.GetComponent<PauseMenu>().Pause();
             isPaused = true;
